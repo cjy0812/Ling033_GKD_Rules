@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '全屏广告-创作者广告分成',
-      desc: '刷视频出现',
+      desc: '刷视频出现,使用返回来跳过',
       rules: [
         {
           fastQuery: true,
