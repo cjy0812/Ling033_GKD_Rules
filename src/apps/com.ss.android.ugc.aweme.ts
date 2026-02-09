@@ -34,5 +34,91 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '全屏广告-视频推荐广告',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          action: 'back',
+          activityIds: '.main.MainActivity',
+          matches: [
+            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
+            '([text$="广告"][vid="desc"][visibleToUser=true])',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/21142063',
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '全屏广告-福利推荐广告',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          activityIds: '.main.MainActivity',
+          matches: 'FlattenUIText[text="不感兴趣"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/20035670',
+        },
+      ],
+    },
+    {
+      key: 5,
+      name: '全屏广告-视频推荐广告-应用',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          action: 'back',
+          activityIds: '.main.MainActivity',
+          matches: [
+            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
+            '(ImageView[childCount=0] + [text="应用"][visibleToUser=true])',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/21142589',
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '全屏广告-视频推荐广告-游戏',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          action: 'back',
+          activityIds: '.main.MainActivity',
+          matches: [
+            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
+            '(ImageView[childCount=0] + [text="游戏"][visibleToUser=true])',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/21142871',
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '全屏广告-视频推荐广告-购物',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          action: 'back',
+          activityIds: '.main.MainActivity',
+          matches: [
+            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
+            '(ImageView[childCount=0] + [text="购物"][visibleToUser=true])',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/21142249',
+        },
+      ],
+    },
   ],
 });
