@@ -1,10 +1,26 @@
+# 自用GKD订阅规则，偏细分与功能
 
+## 订阅链接
 
+jsdelivr镜像:
+
+```txt
+https://fastly.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
+```
+
+npmmirror镜像:
+
+```txt
+https://registry.npmmirror.com/gkd-rules-subscription/latest/files/dist/gkd.json5
+```
+
+Github源:
+
+```txt
 https://github.com/cjy0812/Ling033_GKD_Rules/raw/refs/heads/main/dist/gkd.json5
+```
 
-# subscription-template
-
-GKD 订阅模板, 此仓库方便您直接构建自己订阅, 点击右上角 [Use this template](https://github.com/new?template_name=subscription-template&template_owner=gkd-kit) 即可使用
+---
 
 ## 配置环境
 
