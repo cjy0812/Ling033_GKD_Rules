@@ -8,10 +8,10 @@ jsdelivr镜像:
 https://fastly.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
 ```
 
-npmmirror镜像:
+~~npmmirror镜像:~~
 
 ```txt
-https://registry.npmmirror.com/gkd-rules-subscription/latest/files/dist/gkd.json5
+
 ```
 
 Github源:
