@@ -14,7 +14,7 @@ export default defineGkdApp({
           activityIds: 'com.android.settings.homepage.SettingsHomepageActivity',
           matches:
             '[vid="dashboard_tile"] > [vid="delete"][clickable=true][visibleToUser=true]',
-          snapshotUrls: 'https://li.chenge.eu.org/i/25522123',
+          snapshotUrls: 'https://i.gkd.li/i/25522123',
         },
       ],
     },
