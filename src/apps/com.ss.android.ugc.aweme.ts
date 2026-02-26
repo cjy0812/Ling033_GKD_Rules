@@ -138,5 +138,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 9,
+      name: '局部广告-就医防诈骗提示',
+      desc: '就医选择官方渠道_横幅-右侧x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
+          matches:
+            '@ImageView[clickable=true][visibleToUser=true] - [text$="谨防医托诈骗"] <3 ViewGroup[childCount=4] <<2 FrameLayout -2 [vid="title"][text$="条评论"]',
+          snapshotUrls: 'https://i.gkd.li/i/25570930',
+        },
+      ],
+    },
   ],
 });
