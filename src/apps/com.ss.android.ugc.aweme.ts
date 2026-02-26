@@ -120,5 +120,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 8,
+      name: '全屏广告-视频推荐广告-咨询',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          action: 'back',
+          activityIds: '.main.MainActivity',
+          matches: [
+            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
+            '(ImageView[childCount=0] + [text="咨询"][visibleToUser=true])',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/25570382',
+        },
+      ],
+    },
   ],
 });
