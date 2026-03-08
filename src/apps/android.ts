@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '功能类-连接电脑选管理文件',
+      name: 'debug-连接电脑选管理文件',
       desc: 'USB已连接-管理文件-取消',
       fastQuery: true,
       rules: [
