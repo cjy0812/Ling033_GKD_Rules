@@ -1,33 +1,70 @@
 name: build_release
 
-on: workflow_dispatch
+on:
+  schedule:
+    - cron: '0 19 * * *'
+  workflow_dispatch:
 
 jobs:
-  build_release:
+  check_changes:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.version.outputs.version }}
+      changed: ${{ steps.changes.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - id: changes
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+              echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            prev_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "none")
+            if [ "$prev_tag" == "none" ]; then
+              echo "changed=true" >> $GITHUB_OUTPUT
+            else
+              if git diff --exit-code $prev_tag HEAD -- src; then
+                echo "No changes detected in 'src' directory between $prev_tag and the latest commit."
+                echo "changed=false" >> $GITHUB_OUTPUT
+              else
+                echo "changed=true" >> $GITHUB_OUTPUT
+              fi
+            fi
+          fi
 
-      - uses: actions/setup-node@v4
+  build_release:
+    needs: check_changes
+    if: ${{ needs.check_changes.outputs.changed == 'true' }}
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
         with:
-          node-version: 22
+          fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - name: 配置 Node.js 运行环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
 
-      - run: pnpm install
+      - name: 配置 pnpm 包管理器
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm run build
+      - name: 安装项目依赖
+        run: pnpm install
 
-      - id: version
+      - name: 构建项目
+        run: pnpm run build
+
+      - name: 生成版本号
+        id: version
         run: |
           version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
-      - name: Git commit
+      - name: 提交构建产物
         id: commit
         run: |
           git config --local user.email github-actions[bot]@users.noreply.github.com
@@ -37,7 +74,7 @@ jobs:
           git commit -a -m "chore: v${{steps.version.outputs.version}}"
         continue-on-error: true
 
-      - name: Git push
+      - name: 推送代码到远程仓库
         if: ${{ steps.commit.outcome == 'success' }}
         uses: ad-m/github-push-action@master
         with:
@@ -45,22 +82,21 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
 
-      - name: Create Release
+      - name: 生成离线订阅文件（用于发行版）
+        run: |
+          cp dist/gkd.json5 "dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5"
+
+      - name: 创建 GitHub 发行版
+        id: create_release
         if: ${{ steps.commit.outcome == 'success' }}
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ steps.version.outputs.version }}
-          release_name: Release ${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
           body_path: ./dist/CHANGELOG.md
-
-      - name: Publish package
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: ${{ steps.commit.outcome == 'success' && env.NPM_TOKEN != '' }}
-        run: |
-          pnpm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
-          node -e "import('@gkd-kit/tools').then((m) => m.updatePkgVersion());"
-          pnpm publish --no-git-checks
-          node -e "import('@gkd-kit/tools').then((m) => m.syncNpmmirror());"
+          generate_release_notes: true
+          append_body: true
+          files: |
+            dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5
