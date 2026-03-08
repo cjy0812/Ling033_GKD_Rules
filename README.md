@@ -2,19 +2,19 @@
 
 ## 订阅链接
 
-jsdelivr镜像:
+- bgithub源 (国内可用,同步及时30min内,但可能随时挂掉！)
+
+```txt
+https://raw.bgithub.xyz/Lin-arm/GKD_subscription/main/dist/gkd.json5
+```
+
+- jsdelivr源（滞后12h）:
 
 ```txt
 https://fastly.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
 ```
 
-~~npmmirror镜像:~~
-
-```txt
-
-```
-
-Github源:
+- Github源:
 
 ```txt
 https://github.com/cjy0812/Ling033_GKD_Rules/raw/refs/heads/main/dist/gkd.json5
