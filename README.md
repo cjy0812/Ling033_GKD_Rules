@@ -5,7 +5,7 @@
 - bgithub源 (国内可用,同步及时30min内,但可能随时挂掉！)
 
 ```txt
-https://raw.bgithub.xyz/Lin-arm/GKD_subscription/main/dist/gkd.json5
+https://raw.bgithub.xyz/cjy0812/Ling033_GKD_Rules/main/dist/gkd.json5
 ```
 
 - jsdelivr源（滞后12h）:
