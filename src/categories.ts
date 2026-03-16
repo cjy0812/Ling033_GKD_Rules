@@ -70,4 +70,10 @@ export default defineGkdCategories([
     name: 'debug',
     enable: false,
   },
+  {
+    // 适配小程序类的规则，如微信小程序
+    key: 12,
+    name: '小程序',
+    enable: false,
+  },
 ]);
