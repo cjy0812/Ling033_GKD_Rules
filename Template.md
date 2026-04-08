@@ -13,6 +13,12 @@
 
 ## 🚀订阅链接
 
+- CloudFlare源 (链接已对国内优选加速)
+
+```txt
+https://gkd.chenge.eu.org/gkd.json5
+```
+
 - bgithub源 (国内可用,同步及时30min内,但可能随时挂掉！)
 
 ```txt
