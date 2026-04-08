@@ -159,49 +159,54 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 您可以换成 <https://fastly.jsdelivr.net/gh/username/subscription@main/dist/gkd.json5> 加速访问
 
-如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net
+如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net, 可以使用 CloudFlare 托管加速访问
 
-您可以将本仓库发布到 npm 上, 然后通过 registry.npmmirror.com 加速访问
+## CloudFlare 中国大陆加速访问
 
-要发布到 npm 上, 必须先将 [./package.json](./package.json) 的 name 字段改成未使用的包名, 否则发布失败
+  ### 前置条件:
+   - 一个 CloudFlare 账号
+   - 一个 自定义域名(可选，如果没有用自带也可以，就是没有中国大陆优选加速)
+  
+  ### 仓库添加`wrangler.toml`
+  请在仓库根目录下添加 `wrangler.toml` 文件, 内容如下示例，根据情况修改
+  ```toml
+  name = "ling033-gkd-rules"          # ← 必须和你在 Cloudflare 创建 Worker 时填的项目名称**完全一致**（小写+连字符）
+  compatibility_date = "2026-04-08"
+  
+  [assets]
+  directory = "./dist"               # 关键！指向你的 JSON5 文件所在目录
+  # not_found_handling = "404-page"  # 可选，你的订阅文件通常不需要
+  ```
 
-您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
+  ### 创建Worker
+  - 登录 CloudFlare 账号
+  - `Worker和Pages` - `创建应用程序`
+      <img width="1565" height="733" alt="Image" src="https://github.com/user-attachments/assets/ca10816e-ddc7-4058-b642-892c7ceba7dd" />
+  - 选择`Continue with GitHub`
+      <img width="912" height="481" alt="Image" src="https://github.com/user-attachments/assets/6a324a4a-e97b-43d0-bdb1-a307921cbf63" />
+  - 选择自己的账号`username`在下面选择自己的 `subscription` 仓库, 点击`下一步` 即可创建应用程序
+      <img width="943" height="587" alt="Image" src="https://github.com/user-attachments/assets/e87f9a9d-6515-4ad9-8ca9-97792e57b0f6" />
+  - 修改项目名称务必和`wrangler.toml`里`name`相同，删掉`构建命令`，注意项目名称`小写`只能使用`-`后点击`部署`。
+      <img width="938" height="588" alt="Image" src="https://github.com/user-attachments/assets/739b7c07-3531-4ea9-9a81-71389db9864d" />
 
-或者改成 `@your_npm_name/subscription`, 这种类型是 scope 名称, 其中 `your_npm_name` 是你下面要注册的 npm 用户名
+  ### Worker设置
+  - 禁用`自带域名`没有自定义域名的不要禁用(你需要ta!!!)
+      <img width="1034" height="232" alt="Image" src="https://github.com/user-attachments/assets/2910c26e-9421-49f1-8cef-c2cee3c31b63" />
+  - 为了防止一提交就构建我们需要现在检测变动构建路径为产物构建我们需要限制构建产物的路径
+      <img width="1424" height="842" alt="Image" src="https://github.com/user-attachments/assets/1c53e855-5fe2-4b5b-9e92-5cc63dee85f1" />
+  - 到这里没有自定义域名, 就可以使用CF自带域名了，下面不用看了直接看结尾。
+   
+  ### 大陆优选加速
+  有自己域名的可以进行下一步了
+  `设置`-`+添加`-`路由`-`区域`选择`自己的域名`-路由填写一个自己喜欢的子域名，自己的根域也不是不行，你开心就好~然后给点击`添加路由`
+  <img width="972" height="913" alt="Image" src="https://github.com/user-attachments/assets/0504db01-9ba3-48ed-88f9-efc8140e1243" />
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/79817967-6f97-4935-9bf3-179bbf50b3aa)
+  ### 添加CNAME记录到优选加速域名
+  [CM大佬收集的优选加速域名](https://cf.090227.xyz/)
+  <img width="1571" height="661" alt="Image" src="https://github.com/user-attachments/assets/da449271-8810-482c-b775-7b502ecfd3cb" />
 
-接下来获取 token, 你需要先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/ca5eaf26-3705-4dc7-9584-4a235bbefde2)
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/6da188ab-e415-44de-b2f7-3f985ab4d401)
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/55db57f6-1021-4d85-afd0-fe7df1f9bbcf)
-
-复制后打开 <https://github.com/username/subscription/settings/secrets/actions/new>
-
-在 Name 输入 `NPM_TOKEN`, 在 Secret 输入刚刚复制的 token, 点击 Add secret 即可添加成功
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/72b062d8-4540-4602-82fe-416ea5348014)
-
-然后只需要重复上面的 构建订阅 步骤即可发布, 发布后得到的镜像加速链接如下
-
-```txt
-https://registry.npmmirror.com/gkd-subscription-xxxx/latest/files/dist/gkd.json5
-```
-
-注: 将 gkd-subscription-xxxx 换成您的包名
-
-如果你的包名是 `@your_npm_name/subscription` 这种类型, 加速链接是
-
-```txt
-https://registry.npmmirror.com/@your_npm_name/subscription/latest/files/dist/gkd.json5
-```
-
-由于 npmmirror 被恶意刷流量后已经改为白名单模式, 不在白名单内的包, 上面的链接无法正常加速访问
-
-因此要使上面的链接被正常访问, 你需要向 <https://github.com/cnpm/unpkg-white-list> 提交 pr 将你的包添加到白名单
+  ### 结尾
+  至此你可以在你的域名后面加上`/gkd.json5`即可访问
 
 ## 自定义配置文件
 
