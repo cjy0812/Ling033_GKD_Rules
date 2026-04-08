@@ -1,0 +1,6 @@
+name = "ling033-gkd-rules"          # ← 必须和你在 Cloudflare 创建 Worker 时填的项目名称**完全一致**（小写+连字符）
+compatibility_date = "2026-04-08"
+
+[assets]
+directory = "./dist"               # 关键！指向你的 JSON5 文件所在目录
+# not_found_handling = "404-page"  # 可选，你的订阅文件通常不需要
