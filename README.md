@@ -1,9 +1,9 @@
 # Ling自用GKD订阅规则，偏细分与功能
 
-[![Release](https://img.shields.io/badge/release-v8-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
+[![Release](https://img.shields.io/badge/release-v9-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-7-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
-[![应用规则组](https://img.shields.io/badge/应用规则组-20-orange)](./dist/README.md#应用规则)
+[![应用规则组](https://img.shields.io/badge/应用规则组-21-orange)](./dist/README.md#应用规则)
 
 ## 📢声明
 
