@@ -50,7 +50,7 @@ jobs:
           node-version: 25
 
       - name: 配置 pnpm 包管理器
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: 安装项目依赖
         run: pnpm install
