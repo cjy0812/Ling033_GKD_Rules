@@ -1,9 +1,9 @@
 # Ling自用GKD订阅规则，偏细分与功能
 
-[![Release](https://img.shields.io/badge/release-v9-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
-[![已适配应用](https://img.shields.io/badge/已适配应用-7-brightgreen)](./dist/README.md#应用规则)
+[![Release](https://img.shields.io/badge/release-v10-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
+[![已适配应用](https://img.shields.io/badge/已适配应用-9-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
-[![应用规则组](https://img.shields.io/badge/应用规则组-21-orange)](./dist/README.md#应用规则)
+[![应用规则组](https://img.shields.io/badge/应用规则组-25-orange)](./dist/README.md#应用规则)
 
 ## 📢声明
 
@@ -17,12 +17,6 @@
 
 ```txt
 https://gkd.chenge.eu.org/gkd.json5
-```
-
-- bgithub源 (国内可用,同步及时30min内,但可能随时挂掉！)
-
-```txt
-https://raw.bgithub.xyz/Lin-arm/GKD_subscription/main/dist/gkd.json5
 ```
 
 - jsdelivr源（滞后12h）:
