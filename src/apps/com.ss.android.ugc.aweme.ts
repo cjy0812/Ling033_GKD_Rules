@@ -27,7 +27,17 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
-          action: 'back',
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           matches:
             '[desc="不感兴趣"][clickable=false] +3 @[desc="立即参与"][clickable=false][visibleToUser=true] +3 [desc="上滑继续看视频"][clickable=false] <<426 [vid="viewpager"][desc="视频"]',
           snapshotUrls: 'https://i.gkd.li/i/25025682',
