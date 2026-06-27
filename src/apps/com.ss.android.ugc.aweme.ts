@@ -34,112 +34,230 @@ export default defineGkdApp({
         },
       ],
     },
+    // 推广视频
     {
       key: 3,
-      name: '全屏广告-视频推荐广告',
+      name: '全屏广告-推广视频',
       desc: '通过返回操作跳过广告',
       rules: [
         {
           key: 0,
           fastQuery: true,
-          action: 'back',
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           activityIds: '.main.MainActivity',
-          matches: [
-            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
-            '([text$="广告"][vid="desc"][visibleToUser=true])',
+          matches:
+            '[text$="广告" || text$="（推广）"][vid="desc"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/21142063', // [text$="广告"]
+            'https://i.gkd.li/i/29403811', // [text$="（推广）"] (标题里)
+            // 未实现
+            'https://i.gkd.li/i/29403704', //购物[index=0]
+            'https://i.gkd.li/i/29403301', //广告[vid=null]
           ],
-          snapshotUrls: 'https://i.gkd.li/i/21142063',
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '全屏广告-福利推荐广告',
-      desc: '通过返回操作跳过广告',
-      rules: [
-        {
-          key: 0,
-          fastQuery: true,
-          activityIds: '.main.MainActivity',
-          matches: 'FlattenUIText[text="不感兴趣"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/20035670',
         },
       ],
     },
     {
       key: 5,
-      name: '全屏广告-视频推荐广告-应用',
+      name: '全屏广告-推广视频-应用',
       desc: '通过返回操作跳过广告',
       rules: [
         {
-          key: 0,
           fastQuery: true,
-          action: 'back',
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           activityIds: '.main.MainActivity',
-          matches: [
-            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
-            '(ImageView[childCount=0] + [text="应用"][visibleToUser=true])',
+          matches: '[text="应用"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/21142589', //应用
           ],
-          snapshotUrls: 'https://i.gkd.li/i/21142589',
         },
       ],
     },
     {
       key: 6,
-      name: '全屏广告-视频推荐广告-游戏',
+      name: '全屏广告-推广视频-游戏',
       desc: '通过返回操作跳过广告',
       rules: [
         {
-          key: 0,
           fastQuery: true,
-          action: 'back',
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           activityIds: '.main.MainActivity',
-          matches: [
-            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
-            '(ImageView[childCount=0] + [text="游戏"][visibleToUser=true])',
+          matches: '[text$="游戏"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/21142871',
+            'https://i.gkd.li/i/21725628', //小游戏
           ],
-          snapshotUrls: 'https://i.gkd.li/i/21142871',
         },
       ],
     },
     {
       key: 7,
-      name: '全屏广告-视频推荐广告-购物',
+      name: '全屏广告-推广视频-购物',
       desc: '通过返回操作跳过广告',
       rules: [
         {
-          key: 0,
           fastQuery: true,
-          action: 'back',
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           activityIds: '.main.MainActivity',
-          matches: [
-            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
-            '(ImageView[childCount=0] + [text="购物"][visibleToUser=true])',
-          ],
+          matches: '[text="购物"][text.length<6][index=1][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/21142249',
         },
       ],
     },
     {
       key: 8,
-      name: '全屏广告-视频推荐广告-咨询',
+      name: '全屏广告-推广视频-咨询',
       desc: '通过返回操作跳过广告',
       rules: [
         {
-          key: 0,
           fastQuery: true,
-          action: 'back',
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           activityIds: '.main.MainActivity',
-          matches: [
-            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
-            '(ImageView[childCount=0] + [text="咨询"][visibleToUser=true])',
-          ],
+          matches: '[text="咨询"][text.length<6][index=1][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/25570382',
         },
       ],
     },
     {
       key: 9,
+      name: '全屏广告-推广视频-服务',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: '.main.MainActivity',
+          matches: '[text="服务"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29403479', //服务
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '全屏广告-推广视频-预约',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: '.main.MainActivity',
+          matches: '[text="预约"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21765934', //预约
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '全屏广告-推广视频-子薇剧场',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: '.main.MainActivity',
+          matches:
+            '[text="子薇剧场"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21523849', //子薇剧场
+        },
+      ],
+    },
+
+    // 推广视频_END
+    {
+      key: 16,
       name: '局部广告-就医防诈骗提示',
       desc: '就医选择官方渠道_横幅-右侧x掉',
       rules: [
