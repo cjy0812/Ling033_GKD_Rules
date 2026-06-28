@@ -33,7 +33,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '全屏广告-推广视频',
-      desc: '通过返回操作跳过广告',
+      desc: '通过滑动操作跳过广告',
       rules: [
         {
           key: 0,
@@ -53,13 +53,14 @@ export default defineGkdApp({
           },
           activityIds: '.main.MainActivity',
           matches:
-            '[text$="广告" || text$="（推广）"][vid="desc"][visibleToUser=true]',
+            '(FrameLayout[id=null][text=null][desc=null][clickable=false][focusable=true][visibleToUser=true] > [text="广告"][desc="广告"]) || (FrameLayout[text=null][desc=null][id!=null][childCount=1][index=1][clickable=true][visibleToUser=true] > [vid="desc"][text$="广告" || text$="（推广）"])',
           snapshotUrls: [
-            'https://i.gkd.li/i/21142063', // [text$="广告"]
-            'https://i.gkd.li/i/29403811', // [text$="（推广）"] (标题里)
-            // 未实现
-            'https://i.gkd.li/i/29403704', //购物[index=0]
-            'https://i.gkd.li/i/29403301', //广告[vid=null]
+            //选择器A
+            'https://i.gkd.li/i/29403704', //[text="广告"][desc="广告"] 2026-04-12
+            'https://i.gkd.li/i/29403301', //[text="广告"][desc="广告"] 2026-05-30
+            //选择器B
+            'https://i.gkd.li/i/21142063', //[vid="desc"][text$="广告"] 2025-07-08
+            'https://i.gkd.li/i/29403811', //[vid="desc"][text$="（推广）"] 2026-04-12
           ],
         },
       ],
