@@ -299,8 +299,9 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
           matches:
-            '@ImageView[clickable=true][visibleToUser=true] - [text$="谨防医托诈骗"] <3 ViewGroup[childCount=4] <<2 FrameLayout -2 [vid="title"][text$="条评论"]',
+            '@[clickable=true][text=null][desc=null][id!=null][left!=0][index=3][visibleToUser=true] - [text$="谨防医托诈骗"]',
           snapshotUrls: 'https://i.gkd.li/i/25570930',
+          exampleUrls: 'https://e.gkd.li/b91f0f42-a54b-440b-988d-02e6bd762b80',
         },
       ],
     },
