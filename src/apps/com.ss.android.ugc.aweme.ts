@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '全屏广告-话题视频推荐',
-      desc: '使用返回来跳过话题视频',
+      desc: '使用上滑来跳过话题视频',
       rules: [
         {
           fastQuery: true,
@@ -21,11 +21,12 @@ export default defineGkdApp({
               x: 'screenWidth/2',
               y: 'screenHeight * 0.3',
             },
-            duration: 200, //滑动时长
+            duration: 114, //滑动时长
           },
           matches:
-            '[desc="不感兴趣"][clickable=false] +3 @[desc="立即参与"][clickable=false][visibleToUser=true] +3 [desc="上滑继续看视频"][clickable=false] <<426 [vid="viewpager"][desc="视频"]',
+            '@FlattenUIText - UISvg - [text^="上滑继续"] -3 LynxFlattenUI[desc="立即参与"] - FlattenUIText - [text="不感兴趣"] -n [text*="人参与"][text$="次播放"][clickable=true] -2 UIView - FlattenUIText -2 [text*="人参与"][text$="次播放"][clickable=false] - LynxFlattenUI[clickable=true] <n * <<(12-n) FrameLayout <n RelativeLayout <4 * <5 FrameLayout[childCount=6] <2 [vid="viewpager"][desc="视频"] +3 [vid="bottom_space"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/25025682',
+          exampleUrls: 'https://e.gkd.li/b0552070-ca9d-4d84-92ab-ed31d36a2ba8',
         },
       ],
     },
