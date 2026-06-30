@@ -19,39 +19,51 @@
 https://gkd.chenge.eu.org/gkd.json5
 ```
 
-- jsdelivr源（滞后12h）:
-
-```txt
-https://fastly.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
-```
-
 - Github源:
 
 ```txt
 https://github.com/cjy0812/Ling033_GKD_Rules/raw/refs/heads/main/dist/gkd.json5
 ```
 
+<details>
+<summary>备用订阅源</summary>
+- xget源(CF?):
+
+```txt
+https://xget.xi-xu.me/gh/cjy0812/Ling033_GKD_Rules/raw/main/dist/gkd.json5
+```
+
+- jsdelivr源（滞后约12h）:
+
+```txt
+https://cdn.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
+```
+</details>
+
 ---
 
 ## 🌈其他
+### GKD相关
 
-- 在 [GKD官网](https://gkd.li/) 查看 [GKD基础使用教程](https://gkd.li/guide/) 、[常见问题](https://gkd.li/guide/faq) 以及 [API文档](https://gkd.li/api/)
+  - 在 [GKD官网](https://gkd.li/) 查看 [GKD基础使用教程](https://gkd.li/guide/) 、[常见问题](https://gkd.li/guide/faq) 以及 [API文档](https://gkd.li/api/)
 
-- 查看 [规则编写教程](https://github.com/Snoopy1866/notebook/blob/main/04%20Others/GKD%20%E8%A7%84%E5%88%99%E7%BC%96%E5%86%99%E6%95%99%E7%A8%8B/gkd-rule-tutorial.md) By [@Snoopy1866](https://github.com/Snoopy1866)
+  - 查看 [规则编写教程](https://github.com/Snoopy1866/notebook/blob/main/04%20Others/GKD%20%E8%A7%84%E5%88%99%E7%BC%96%E5%86%99%E6%95%99%E7%A8%8B/gkd-rule-tutorial.md) By [@Snoopy1866](https://github.com/Snoopy1866)
+  
+  - 如何编写订阅/贡献此项目 -> 查看 [贡献指南](https://github.com/Lin-arm/GKD_subscription/blob/main/CONTRIBUTING.md)
 
-- 本人自用[GKD审查工具Plus版](https://github.com/cjy0812/inspect-plus) 基于原版做出更激进的增强体验与功能修改
+### GKD规则编写工具/插件/模板
 
-- 使用 [GKD网页审查工具增强脚本](https://github.com/adproqwq/MakeGKDInspectBetter) 可以高度自定义从网页复制出来的规则，提高规则编写效率
+  - 本人自用[GKD审查工具Plus版](https://github.com/cjy0812/inspect-plus) 基于原版做出更激进的增强体验与功能修改
 
-- 使用 [GKD订阅模板](https://github.com/gkd-kit/subscription-template) 快速构建自己的订阅
+  - 使用 [GKD网页审查工具增强脚本](https://github.com/adproqwq/MakeGKDInspectBetter) 可以高度自定义从网页复制出来的规则，提高规则编写效率
 
-- 如何编写订阅/贡献此项目 -> 查看 [贡献指南](https://github.com/Lin-arm/GKD_subscription/blob/main/CONTRIBUTING.md)
+  - 使用 [GKD订阅模板](https://github.com/gkd-kit/subscription-template) 快速构建自己的订阅
 
-## 🎉感谢以下项目
 
+## 🎉感谢以下项目  
 - [gkd-kit/subscription](https://github.com/gkd-kit/subscription)
-- [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription)
 - [Lin-arm/GKD_subscription](https://github.com/Lin-arm/GKD_subscription)
+- [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription)
 
 ## 配置环境
 
@@ -151,7 +163,7 @@ https://raw.githubusercontent.com/username/subscription/main/dist/gkd.json5
 
 raw.githubusercontent.com 在大陆的访问常常无法访问
 
-您可以换成 <https://fastly.jsdelivr.net/gh/username/subscription@main/dist/gkd.json5> 加速访问
+您可以换成 <https://cdn.jsdelivr.net/gh/username/subscription@main/dist/gkd.json5> 加速访问
 
 如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net, 可以使用 CloudFlare 托管加速访问
 
