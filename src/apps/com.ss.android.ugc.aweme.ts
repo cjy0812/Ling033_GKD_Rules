@@ -54,7 +54,7 @@ export default defineGkdApp({
           },
           activityIds: '.main.MainActivity',
           matches:
-            '(FrameLayout[id=null][text=null][desc=null][clickable=false][focusable=true][visibleToUser=true] > [text="广告"][desc="广告"]) || (FrameLayout[text=null][desc=null][id!=null][childCount=1][index=1][clickable=true][visibleToUser=true] > [vid="desc"][text$="广告" || text$="（推广）"])',
+            '(FrameLayout[id=null][text=null][desc=null][clickable=false][focusable=true][visibleToUser=true] > [text="广告"][desc="广告"]) || (FrameLayout[text=null][desc=null][id!=null][childCount=1][index=1][clickable=true][visibleToUser=true] > [vid="desc"][text$="广告" || text$="（推广）"]) || (ViewGroup[childCount=5] > ImageView +3 [text^="已售" || text^=" 已售"] - TextView - [text="讲解中 丨 "][index=1][visibleToUser=true])', // (选择器A) || (选择器B) || (选择器C)
           snapshotUrls: [
             //选择器A
             'https://i.gkd.li/i/29403704', //[text="广告"][desc="广告"] 2026-04-12
@@ -62,6 +62,11 @@ export default defineGkdApp({
             //选择器B
             'https://i.gkd.li/i/21142063', //[vid="desc"][text$="广告"] 2025-07-08
             'https://i.gkd.li/i/29403811', //[vid="desc"][text$="（推广）"] 2026-04-12
+            // 选择器C
+            'https://i.gkd.li/i/29605884', //[text^="已售"]
+            'https://i.gkd.li/i/29605791',
+            'https://i.gkd.li/i/29605901', //[text^=" 已售"]
+            'https://i.gkd.li/i/29707532', //[text="已售1"](没有"+")
           ],
         },
       ],
