@@ -1,9 +1,9 @@
 # Ling自用GKD订阅规则，偏细分与功能
 
-[![Release](https://img.shields.io/badge/release-v{{VERSION}}-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
-[![已适配应用](https://img.shields.io/badge/已适配应用-{{APP_SIZE}}-brightgreen)](./dist/README.md#应用规则)
-[![全局规则组](https://img.shields.io/badge/全局规则组-{{GLOBALGROUP_SIZE}}-blueviolet)](./dist/README.md#全局规则)
-[![应用规则组](https://img.shields.io/badge/应用规则组-{{GROUP_SIZE}}-orange)](./dist/README.md#应用规则)
+[![Release](https://img.shields.io/badge/发行版-v13-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
+[![已适配应用](https://img.shields.io/badge/已适配应用-9-brightgreen)](./dist/README.md#应用规则)
+[![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
+[![应用规则组](https://img.shields.io/badge/应用规则组-25-orange)](./dist/README.md#应用规则)
 
 ## 📢声明
 
@@ -65,6 +65,18 @@ https://cdn.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
 - [Lin-arm/GKD_subscription](https://github.com/Lin-arm/GKD_subscription)
 - [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription)
 
+## 🥇感谢以下开发者的贡献
+
+![img](https://contrib.rocks/image?repo=cjy0812/Ling033_GKD_Rules&max=200&_v=13)
+
+<!-- repobeats 已失效 -->
+<!-- ![Alt](https://repobeats.axiom.co/api/embed/db6f46a4bdc4e760fb51976db276f1febef5bdce.svg "报告分析图") -->
+
+## 📈Star History
+
+<!-- [![Star History Chart](https://api.star-history.com/chart?repos=cjy0812/Ling033_GKD_Rules&type=date&legend=top-left)](https://www.star-history.com/?repos=cjy0812%2FLing033_GKD_Rules&type=date&legend=top-left) -->
+
+[![Star History Chart](https://starhistory.link/cjy0812/Ling033_GKD_Rules.svg?theme=rose&style=glass)](https://starhistory.link/cjy0812/Ling033_GKD_Rules)
 ## 配置环境
 
 请安装最新版 nodejs 和 pnpm 运行, 以及使用 vscode 打开项目
