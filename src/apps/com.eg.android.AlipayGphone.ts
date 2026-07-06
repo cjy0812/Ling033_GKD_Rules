@@ -28,7 +28,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           name: '②点击[完成]',
-          actionCd: 400, // 点击完成按钮后，等待400ms，确保领取按钮被点击
+          actionCd: 1000, // 点击完成按钮后，等待1000ms，确保领取按钮被点击
           matches: '[text="完成"]',
           snapshotUrls: 'https://i.gkd.li/i/29407026',
         },
