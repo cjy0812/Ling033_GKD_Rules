@@ -1,0 +1,344 @@
+import { defineGkdApp } from '@gkd-kit/define';
+
+export default defineGkdApp({
+  id: 'com.ss.android.ugc.aweme.lite',
+  name: '抖音极速版',
+  /**
+   *  示例快照: https://i.gkd.li/i/30647148  界面: 'com.ss.android.ugc.aweme.main.MainActivity'
+   *  一般此界面的节点较多,节点树加载很慢,截个快照都要等十几 二十秒
+   *  所以对于该界面,不支持快查的规则不要写,
+   *  也尽量别用 << 关系操作符,因为它会 get 所有节点 （ https://github.com/orgs/gkd-kit/discussions/299 ）
+   */
+  groups: [
+    {
+      key: 2,
+      name: '全屏广告-话题视频推荐',
+      desc: '使用上滑来跳过话题视频',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 114, //滑动时长
+          },
+          matches:
+            '@FlattenUIText - UISvg - [text^="上滑继续"] -3 LynxFlattenUI[desc="立即参与"] - FlattenUIText - [text="不感兴趣"] -n [text*="人参与"][text$="次播放"][clickable=true] -2 UIView - FlattenUIText -2 [text*="人参与"][text$="次播放"][clickable=false] - LynxFlattenUI[clickable=true] <n * <<(12-n) FrameLayout <n RelativeLayout <4 * <5 FrameLayout[childCount=6] <2 [vid="viewpager"][desc="视频"] +3 [vid="bottom_space"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25025682',
+          exampleUrls: 'https://e.gkd.li/b0552070-ca9d-4d84-92ab-ed31d36a2ba8',
+        },
+      ],
+    },
+    // 推广视频
+    {
+      key: 3,
+      name: '全屏广告-推广视频',
+      desc: '通过滑动操作跳过广告',
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches:
+            '([visibleToUser=true] > [text$="广告" || text$="（推广）"][vid="desc" || desc="广告"]) || (FrameLayout[text=null][desc=null][id!=null][childCount=1][index=1][clickable=true][visibleToUser=true] > [vid="desc"][text$="广告" || text$="（推广）"]) || (ViewGroup[childCount=5] > ImageView +3 [text^="已售" || text^=" 已售"] - TextView - [text="讲解中 丨 "][index=1][visibleToUser=true])', // (选择器A) || (选择器B) || (选择器C)
+          snapshotUrls: [
+            // 选择器A
+            'https://i.gkd.li/i/21142063', // [text$="广告"][vid="desc"]
+            'https://i.gkd.li/i/29403811', // [text$="（推广）"][vid="desc"]
+            'https://i.gkd.li/i/29403704', // [text$="广告"][desc="广告"]
+            'https://i.gkd.li/i/29403301', // [text$="广告"][desc="广告"] [visibleToUser=false]
+            //选择器B(已分家)
+
+            // 选择器C
+            'https://i.gkd.li/i/29605884', //[text^="已售"]
+            'https://i.gkd.li/i/29605791',
+            'https://i.gkd.li/i/29605901', //[text^=" 已售"]
+            'https://i.gkd.li/i/29707532', //[text="已售1"](没有"+")
+          ],
+        },
+      ],
+    },
+    {
+      key: 5,
+      name: '全屏广告-推广视频-应用',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches: '[text="应用"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/21142589', //应用
+          ],
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '全屏广告-推广视频-游戏',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches: '[text$="游戏"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21142871', //游戏
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '全屏广告-推广视频-购物',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches: '[text="购物"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21142249',
+        },
+      ],
+    },
+    {
+      key: 8,
+      name: '全屏广告-推广视频-咨询',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches: '[text="咨询"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25570382',
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '全屏广告-推广视频-服务',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches: '[text="服务"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29403479', //服务
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '全屏广告-推广视频-预约',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches: '[text="预约"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21765934', //预约
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '全屏广告-推广视频-子薇剧场',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches:
+            '[text="子薇剧场"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21523849', //子薇剧场
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '全屏广告-推广视频-小游戏',
+      desc: '通过返回操作跳过广告',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
+          ],
+          matches:
+            '[text$="小游戏"][text.length<6][index=1][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/21725628', //小游戏
+        },
+      ],
+    },
+
+    // 推广视频_END
+    {
+      key: 16,
+      name: '局部广告-就医防诈骗提示',
+      desc: '就医选择官方渠道_横幅-右侧x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
+          matches:
+            '@[clickable=true][text=null][desc=null][id!=null][left!=0][index=3][visibleToUser=true] - [text$="谨防医托诈骗"]',
+          snapshotUrls: 'https://i.gkd.li/i/25570930',
+          exampleUrls: 'https://e.gkd.li/b91f0f42-a54b-440b-988d-02e6bd762b80',
+        },
+      ],
+    },
+  ],
+});
