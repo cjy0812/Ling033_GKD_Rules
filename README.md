@@ -1,9 +1,9 @@
 # Ling自用GKD订阅规则，偏细分与功能
 
-[![Release](https://img.shields.io/badge/发行版-v13-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
-[![已适配应用](https://img.shields.io/badge/已适配应用-9-brightgreen)](./dist/README.md#应用规则)
+[![Release](https://img.shields.io/badge/发行版-v14-blue)](https://github.com/cjy0812/Ling033_GKD_Rules/releases/latest)
+[![已适配应用](https://img.shields.io/badge/已适配应用-10-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
-[![应用规则组](https://img.shields.io/badge/应用规则组-25-orange)](./dist/README.md#应用规则)
+[![应用规则组](https://img.shields.io/badge/应用规则组-36-orange)](./dist/README.md#应用规则)
 
 ## 📢声明
 
@@ -67,7 +67,7 @@ https://cdn.jsdelivr.net/gh/cjy0812/Ling033_GKD_Rules@main/dist/gkd.json5
 
 ## 🥇感谢以下开发者的贡献
 
-![img](https://contrib.rocks/image?repo=cjy0812/Ling033_GKD_Rules&max=200&_v=13)
+![img](https://contrib.rocks/image?repo=cjy0812/Ling033_GKD_Rules&max=200&_v=14)
 
 <!-- repobeats 已失效 -->
 <!-- ![Alt](https://repobeats.axiom.co/api/embed/db6f46a4bdc4e760fb51976db276f1febef5bdce.svg "报告分析图") -->
