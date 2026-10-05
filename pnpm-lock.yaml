@@ -46,7 +46,7 @@ importers:
         version: 7.0.2
     devDependencies:
       '@biomejs/biome':
-        specifier: ^2.5.14
+        specifier: ^2.5.15
         version: 2.5.15
 
 packages:

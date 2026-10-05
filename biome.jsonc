@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
   // VCS 集成：启用 git 感知，自动使用 .gitignore 排除文件
   "vcs": {
     "enabled": true,
