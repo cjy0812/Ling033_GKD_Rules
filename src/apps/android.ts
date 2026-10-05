@@ -25,5 +25,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '功能类-App无响应-等待',
+      desc: '适用于类原生系统误报情况',
+      fastQuery: true,
+      rules: [
+        {
+          matches: [
+            '[text$="没有响应" || text*="无响应"]',
+            '[vid="aerr_wait" || text="等待"][clickable=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/33072578',
+          exampleUrls: 'https://e.gkd.li/b61e5ba6-69b6-467e-8a0f-0278a1828c01',
+        },
+      ],
+    },
   ],
 });
