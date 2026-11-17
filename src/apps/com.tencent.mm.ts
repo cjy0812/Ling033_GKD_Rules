@@ -76,5 +76,28 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '功能类-快速切换账号',
+      desc: '排除第一个',
+      actionMaximum: 1,
+      resetMatch: 'app',
+      fastQuery: true,
+      activityIds: '.plugin.setting.ui.setting.SettingsSwitchAccountUI',
+      rules: [
+        {
+          matches:
+            'RelativeLayout[childCount=2] < @FrameLayout[clickable=true][index!=0] <n LinearLayout - RelativeLayout > [text$="以切换账号"][visibleToUser=true]',
+          snapshotUrls: [
+            //2个账号
+            'https://i.gkd.li/i/26159956', // 第一个登录
+            'https://i.gkd.li/i/29710717', // 第二个登录
+            // 3个账号
+            'https://i.gkd.li/i/34995719',
+          ],
+          exampleUrls: 'https://e.gkd.li/0ee723f0-e6e5-4018-9cfa-7a8de22b91e1',
+        },
+      ],
+    },
   ],
 });
