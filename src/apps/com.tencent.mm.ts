@@ -25,34 +25,44 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
-      name: '功能类-付款后自动点击完成/返回商家',
+      key: 26,
+      name: '功能类-付款后自动延点完成/返回商家',
       desc: '6s后点击完成/返回商家按钮',
+      fastQuery: true,
+      actionDelay: 6000,
       rules: [
         {
           key: 0,
-          fastQuery: true,
           activityIds: '.framework.app.UIPageFragmentActivity',
-          actionDelay: 6000,
           matches:
             '[vid="kinda_button_impl_wrapper"][desc="完成" || desc="返回商家"]',
           exampleUrls:
             'https://m.gkd.li/57941037/a5177d9d-6745-443f-baf5-af57153430d8',
           snapshotUrls: [
-            'https://i.gkd.li/i/14399355',
-            'https://i.gkd.li/i/14662147',
+            'https://i.gkd.li/i/14662147', // 返回商家
+            'https://i.gkd.li/i/14399355', // 完成
             'https://i.gkd.li/i/24157874',
+            'https://i.gkd.li/i/33430797',
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/14532946',
         },
         {
           key: 1,
           versionCode: { minimum: 2980 },
-          activityIds: '.plugin.lite.ui.WxaLiteAppTransparentLiteUI',
-          actionDelay: 6000,
-          matches: 'Button[desc="返回商家"][visibleToUser=true]',
+          activityIds: [
+            '.plugin.lite.ui.WxaLiteAppTransparentLiteUI',
+            '.plugin.lite.ui.WxaLiteAppLiteUI',
+            '.plugin.lite.ui.WxaLiteAppPayTransparentLiteUI',
+          ],
+          matches:
+            '@Button[desc="完成" || desc="返回商家" || desc="Done"][visibleToUser=true] -n [desc="支付成功"] < * <<6 FrameLayout <<3 [id="android:id/content"]',
           exampleUrls: 'https://e.gkd.li/e7acbb38-c602-4ea4-88ec-7604c3aeae06',
-          snapshotUrls: 'https://i.gkd.li/i/24141842',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24141842', // 返回商家
+            'https://i.gkd.li/i/29681932', // 完成
+            'https://i.gkd.li/i/31693084', // 完成
+            'https://i.gkd.li/i/33480728', // 返回商家
+          ],
         },
       ],
     },
