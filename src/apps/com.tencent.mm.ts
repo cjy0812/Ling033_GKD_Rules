@@ -56,5 +56,25 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '功能类-交易-动态码(自动确认)',
+      desc: '静态码 -> 动态码(监管要求) -> 点击[识别并支付]',
+      fastQuery: true,
+      activityIds: '.plugin.remittance.ui.RemittanceF2fDynamicCodeUI',
+      rules: [
+        {
+          matches:
+            '[text^="根据"][text*="交易"][text*="动态码"][text$="点击页面按钮识别并完成支付"] < [childCount=1] + LinearLayout[childCount=5] > Button[text="识别并支付"][clickable=true][visibleToUser=true]',
+          snapshotUrls: [
+            // 监管要求
+            'https://i.gkd.li/i/34995049', // 超额
+            // 法律要求
+            'https://i.gkd.li/i/34995351',
+          ],
+          exampleUrls: 'https://e.gkd.li/a0ef6a48-e469-412b-ac6a-493683b44341',
+        },
+      ],
+    },
   ],
 });
