@@ -9,21 +9,17 @@
   "prHourlyLimit": 2,
   "platformAutomerge": true,
   "vulnerabilityAlerts": {
-    "labels": ["security"]
+    "labels": ["security"],
+    "automerge": true,
+    "automergeType": "pr",
+    "minimumReleaseAge": null,
+    "vulnerabilityFixStrategy": "lowest"
   },
   "packageRules": [
     {
-      "description": "普通依赖升级一律不自动合并",
+      "description": "普通依赖升级不自动合并",
       "matchUpdateTypes": ["patch", "minor", "major"],
       "automerge": false
-    },
-    {
-      "description": "安全漏洞修复：不受普通升级冷却限制，CI 通过后自动合并",
-      "matchVulnerabilityAlerts": true,
-      "minimumReleaseAge": null,
-      "automerge": true,
-      "automergeType": "pr",
-      "labels": ["security"]
     }
   ]
 }
