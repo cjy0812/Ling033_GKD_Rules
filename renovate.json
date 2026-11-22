@@ -14,12 +14,5 @@
     "automergeType": "pr",
     "minimumReleaseAge": null,
     "vulnerabilityFixStrategy": "lowest"
-  },
-  "packageRules": [
-    {
-      "description": "普通依赖升级不自动合并",
-      "matchUpdateTypes": ["patch", "minor", "major"],
-      "automerge": false
-    }
-  ]
+  }
 }
