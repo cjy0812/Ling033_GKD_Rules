@@ -16,6 +16,12 @@
 - CloudFlare源 (链接已对国内优选加速)
 
 ```txt
+https://gkd.chenge.eu.org/233/gkd.json5
+```
+
+- CloudFlare旧源（临时兼容一周）
+
+```txt
 https://gkd.chenge.eu.org/gkd.json5
 ```
 
