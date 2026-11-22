@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": true,
+  "timezone": "Asia/Shanghai",
+  "schedule": ["before 6am on monday"],
+  "minimumReleaseAge": "7 days",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "platformAutomerge": true,
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  },
+  "packageRules": [
+    {
+      "description": "安全漏洞修复：跳过普通依赖冷却，CI 通过后由 GitHub 自动合并",
+      "matchVulnerabilityAlerts": true,
+      "minimumReleaseAge": null,
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": ["security"]
+    },
+    {
+      "description": "普通升级不自动合并，避免未经验证的行为变化",
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "automerge": false
+    }
+  ]
+}
