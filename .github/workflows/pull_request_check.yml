@@ -47,6 +47,12 @@ jobs:
       - name: 执行项目检查
         run: pnpm run check
 
+      - name: 构建并验证生成产物
+        run: pnpm run build
+
+      - name: 检查生成产物已同步提交
+        run: git diff --exit-code -- README.md dist
+
       - name: 执行代码格式化
         run: pnpm run format
 
