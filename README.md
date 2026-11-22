@@ -16,7 +16,7 @@
 - CloudFlare源 (链接已对国内优选加速)
 
 ```txt
-https://gkd.chenge.eu.org/gkd.json5
+https://gkd.chenge.eu.org/233/gkd.json5
 ```
 
 - Github源:
