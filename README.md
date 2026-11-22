@@ -19,6 +19,9 @@
 https://gkd.chenge.eu.org/233/gkd.json5
 ```
 
+
+> 新 Cloudflare 地址由 `gkd-subscription-hub` 按订阅 ID 分发。
+
 - Github源:
 
 ```txt
