@@ -13,17 +13,17 @@
   },
   "packageRules": [
     {
-      "description": "安全漏洞修复：跳过普通依赖冷却，CI 通过后由 GitHub 自动合并",
+      "description": "普通依赖升级一律不自动合并",
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "automerge": false
+    },
+    {
+      "description": "安全漏洞修复：不受普通升级冷却限制，CI 通过后自动合并",
       "matchVulnerabilityAlerts": true,
       "minimumReleaseAge": null,
       "automerge": true,
       "automergeType": "pr",
       "labels": ["security"]
-    },
-    {
-      "description": "普通升级不自动合并，避免未经验证的行为变化",
-      "matchUpdateTypes": ["patch", "minor", "major"],
-      "automerge": false
     }
   ]
 }
