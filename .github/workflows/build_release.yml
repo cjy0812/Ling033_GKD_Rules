@@ -84,7 +84,7 @@ jobs:
 
       - name: 生成离线订阅文件（用于发行版）
         run: |
-          cp dist/gkd.json5 "dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5"
+          cp dist/gkd.json5 "dist/gkd-subscription-offline-id233-v${{ steps.version.outputs.version }}.json5"
 
       - name: 创建 GitHub 发行版
         id: create_release
@@ -99,4 +99,4 @@ jobs:
           generate_release_notes: true
           append_body: true
           files: |
-            dist/gkd-subscription-offline-id667-v${{ steps.version.outputs.version }}.json5
+            dist/gkd-subscription-offline-id233-v${{ steps.version.outputs.version }}.json5

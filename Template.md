@@ -16,8 +16,16 @@
 - CloudFlare源 (链接已对国内优选加速)
 
 ```txt
+https://gkd.chenge.eu.org/233/gkd.json5
+```
+
+- CloudFlare旧源（临时兼容一周）
+
+```txt
 https://gkd.chenge.eu.org/gkd.json5
 ```
+
+> 新 Cloudflare 地址由 `gkd-subscription-hub` 按订阅 ID 分发；旧根路径由原静态 Worker 临时兼容一周。
 
 - Github源:
 
